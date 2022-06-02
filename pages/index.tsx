@@ -8,7 +8,6 @@ import Date from "../components/Date";
 const blogData = require("../blogposts.json")
 
 interface HomeProps {
-  allPostsData: PostData[];
   theme: "light" | "dark";
   toggleTheme: () => void;
   config: {
@@ -25,8 +24,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({
   config,
   theme,
-  toggleTheme,
-  
+  toggleTheme,  
 }) => {
 
   return (
