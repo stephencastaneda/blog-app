@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
+
 import Head from "next/head";
-
-import { PostData } from "../lib/posts";
-
 import Layout from "../components/Layout";
 import Date from "../components/Date";
 
-const blogData = require("../blogposts.json")
+// const blogData = fetch("http://localhost:3000/api/blogs/blogs")
+
 
 interface HomeProps {
   theme: "light" | "dark";
@@ -18,14 +18,33 @@ interface HomeProps {
   };
 }
 
-
-
+// 
 
 const Home: React.FC<HomeProps> = ({
   config,
   theme,
   toggleTheme,  
 }) => {
+
+  const [data, setData] = useState([])
+
+  useEffect(() => { 
+    
+    const fetchBlogs = async () => {
+    const response = await fetch("/api/blogs/blogs");
+    console.log('duh response', response)
+    
+    if (!response.ok) {
+      throw new Error (`Error: ${response.status}`);
+    }
+
+    const blogs = await response.json();
+    setData(blogs);
+  } 
+  fetchBlogs()
+}, []);
+
+
 
   return (
     <Layout config={config} theme={theme} toggleTheme={toggleTheme} home>
@@ -41,7 +60,7 @@ const Home: React.FC<HomeProps> = ({
       <section>
         <h2 className="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12">Blog</h2>
         <ul className="space-y-8">
-          {blogData.map((item, i) => {
+          {data.map((item, i) => {
            return ( 
              <>
              <li key={i} className="flex flex-col space-y-3">
@@ -58,13 +77,8 @@ const Home: React.FC<HomeProps> = ({
              </li>
              </>
             )
-          })}
-          
+          })}       
         </ul>
-        
-      
-        
-        
       </section>
     </Layout>
   );
