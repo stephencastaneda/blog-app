@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaGithub, FaMoon, FaSun, FaTwitter } from "react-icons/fa";
 
 interface LayoutProps {
+  children: JSX.Element | JSX.Element[],
   home?: boolean;
   theme?: "light" | "dark";
   toggleTheme?: () => void;

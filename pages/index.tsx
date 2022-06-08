@@ -4,9 +4,6 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import Date from "../components/Date";
 
-// const blogData = fetch("http://localhost:3000/api/blogs/blogs")
-
-
 interface HomeProps {
   theme: "light" | "dark";
   toggleTheme: () => void;
@@ -18,7 +15,6 @@ interface HomeProps {
   };
 }
 
-// 
 
 const Home: React.FC<HomeProps> = ({
   config,
