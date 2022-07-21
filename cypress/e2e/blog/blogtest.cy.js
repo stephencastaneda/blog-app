@@ -1,3 +1,14 @@
+describe('Blogs are visible', function() {
+
+  it('displays blogs', () => {
+
+    cy.visit('http://localhost:3000')
+    cy.get('[data-cy=blog-post]').should('be.visible')
+  })
+})
+
+
+
 describe('Dark Mode Toggle Test', function () {
 
   it("starts with white background", function () {
@@ -9,15 +20,16 @@ describe('Dark Mode Toggle Test', function () {
 
   it("toggles dark background", function () {
 
-    cy.get('[data-cy=dark-toggle]').click()    
-    // cy.get('body').should('have.css', 'background-color', 'rgb(0, 0, 0)')
+    cy.get('[data-cy=dark-toggle]').click() 
+  // Tailwind adds a div with a class dark when it compiles based off theme   
+    cy.get('.dark').should('be.visible')
   
   })
 
   it("toggles white background", function () {
 
     cy.get('[data-cy=light-toggle]').click()
-    // cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
+    cy.get('.light').should('be.visible')
  
   })
 })
@@ -41,11 +53,4 @@ describe('Link opens github and twitter', function() {
   })
 })
 
-describe('Blogs are visible', function() {
 
-  it('displays blogs', () => {
-
-    cy.visit('http://localhost:3000')
-    cy.get('[data-cy=blog-post]').should('be.visible')
-  })
-})
