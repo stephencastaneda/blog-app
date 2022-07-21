@@ -75,9 +75,9 @@ const Layout: React.FC<LayoutProps> = ({
             )}
             <button onClick={toggleTheme}>
               {theme === "dark" ? (
-                <FaSun className="cursor-pointer toggle-light" />
+                <FaSun data-cy="light-toggle" className="cursor-pointer" />
               ) : (
-                <FaMoon className="cursor-pointer toggle-dark" />
+                <FaMoon data-cy="dark-toggle" className="cursor-pointer" />
               )}
             </button>
           </div>

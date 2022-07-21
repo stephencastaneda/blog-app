@@ -1,27 +1,26 @@
+describe('Dark Mode Toggle Test', function () {
 
-// describe('Dark Mode Toggle Test', function () {
+  it("starts with white background", function () {
 
-//   it("starts with white background", function () {
-
-//     cy.visit('http://localhost:3000')
-//     cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
+    cy.visit('http://localhost:3000')
+    cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
   
-//   })
+  })
 
-//   it("toggles dark background", function () {
+  it("toggles dark background", function () {
 
-//     cy.get('.toggle-dark').click()    
-//     cy.get('body').should('have.css', 'background-color', 'rgb(0, 0, 0)')
+    cy.get('[data-cy=dark-toggle]').click()    
+    // cy.get('body').should('have.css', 'background-color', 'rgb(0, 0, 0)')
   
-//   })
+  })
 
-//   it("toggles white background", function () {
+  it("toggles white background", function () {
 
-//     cy.get('.toggle-light').click()
-//     cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
+    cy.get('[data-cy=light-toggle]').click()
+    // cy.get('body').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
  
-//   })
-// })
+  })
+})
 
 
 describe('Link opens github and twitter', function() {
