@@ -47,7 +47,7 @@ export const createHome = (fetchBlog: () => Promise<any[]>
             {data.map((item) => {
               return (
 
-                  <li key={item.title} className="flex flex-col space-y-3" data-testid="post">
+                  <li key={item.title} className="flex flex-col space-y-3" data-testid="post" data-cy="blog-post">
                     <a className="sm:w-min group">
                       <h2 className="sm:w-max max-w-3xl text-2xl md:text-3xl font-medium leading-normal mb-1">
                         {item.title}
