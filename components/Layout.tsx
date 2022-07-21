@@ -64,20 +64,20 @@ const Layout: React.FC<LayoutProps> = ({
           </div>
           <div className="flex items-center space-x-10 md:space-x-7 text-3xl md:text-2xl">
             {config.github !== "" && (
-              <a target="_blank" href={`https://github.com/${config.github}`}>
+              <a target="_blank" className="github-button" href={`https://github.com/${config.github}`}>
                 <FaGithub className="cursor-pointer hover:text-github" />
               </a>
             )}
             {config.twitter !== "" && (
-              <a target="_blank" href={`https://twitter.com/${config.twitter}`}>
+              <a target="_blank" className="twitter-button" href={`https://twitter.com/${config.twitter}`}>
                 <FaTwitter className="cursor-pointer hover:text-twitter" />
               </a>
             )}
             <button onClick={toggleTheme}>
               {theme === "dark" ? (
-                <FaSun className="cursor-pointer" />
+                <FaSun className="cursor-pointer toggle-light" />
               ) : (
-                <FaMoon className="cursor-pointer" />
+                <FaMoon className="cursor-pointer toggle-dark" />
               )}
             </button>
           </div>
